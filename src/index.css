@@ -1,13 +1,390 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pretendard";
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html,
+body {
+  font-size: 62.5%;
+  font-family: "Pretendard";
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrap {
+  background-color: #fafafa;
+  max-width: 1080px;
+  width: 100dvw;
+  height: 100dvh;
+  font-size: 4rem;
+}
+
+.up-header {
+  max-width: 1080px;
+  width: 100%;
+  height: 70px;
+  background-color: #252525;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.down-header {
+  max-width: 1080px;
+  width: 100%;
+  height: 120px;
+  background-color: #252525;
+  top: 70px;
+  left: 0;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.max-width {
+  max-width: 1080px;
+  width: 100dvw;
+}
+
+.footer-coffeelogo {
+  width: 205px;
+  height: 38px;
+}
+
+.footer-btn-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.header-coffeelogo {
+  width: 178px;
+  height: 33px;
+}
+
+.top-horizontal-line {
+  max-width: 1080px;
+  width: 100%;
+  position: fixed;
+  top: 69px;
+  height: 1px;
+  z-index: 2;
+  background-color: #707070;
+}
+
+.down-horizontal-line {
+  max-width: 1080px;
+  width: 100%;
+  position: fixed;
+  bottom: 111px;
+  height: 1px;
+  z-index: 2;
+  background-color: #707070;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gap2 {
+  gap: 20px;
+}
+
+.down-footer {
+  /* height:var(--footerHeight) */
+  max-width: 1080px;
+  width: 100%;
+  height: 112px;
+  background-color: #252525;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+.second-up-footer {
+  max-width: 1080px;
+  width: 100%;
+  height: 174px;
+  background-color: #252525;
+  position: fixed;
+  bottom: 112px;
+  left: 0;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+}
+
+/* .third-up-footer {
+  max-width: 1080px;
+  width: 100%;
+  height: 346px;
+  background-color: #252525;
+  position: fixed;
+  bottom: 112px;
+  left: 0;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+} */
+
+.first-content {
+  width: 100%;
+  height: calc(100vh - 1280px - 112px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.black-circle {
+  width: 72px;
+  height: 72px;
+}
+
+.black-circle-text {
+  margin-left: 13px;
+  margin-top: 12px;
+  color: #8b8b8b;
+}
+
+.home-btn {
+  width: 245px;
+  height: 240px;
+  background-color: #252525;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  gap: 20px;
+  border-radius: 18px;
+  color: #ffffff;
+}
+
+.second-footer-btn {
+  font-size: 4rem;
+  width: 185px;
+  height: 135px;
+  background-color: #757575;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  color: #ffffff;
+  gap: 5px;
+}
+
+/* .third-footer-btn {
+  font-size: 4rem;
+  width: 196px;
+  height: 210px;
+  background-color: #757575;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;;
+  border-radius: 10px;
+  color: #ffffff;
+} */
+
+.short-colline {
+  width: 2px;
+  height: 41px;
+  background: #707070;
+}
+
+.orange-line {
+  width: 507px;
+  height: 1px;
+  background: #d2b6a4;
+}
+
+.step-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #252525;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  color: #929292; /* 기본 회색 */
+}
+
+.step .header-black-circle {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 4rem;
+  background-color: black;
+  margin-right: 15px;
+}
+
+.step .border-circle {
+  border: 9px solid #4b403a;
+  width: 74px;
+  height: 74px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 4rem;
+  color: #1f1f1f;
+  background-color: #eb9b63;
+  margin-right: 15px;
+}
+
+.step .checked-circle {
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 15px;
+  display: flex;
+  width: 58px;
+  height: 58px;
+  background-color: #eb9b63; /* 주황색 */
+  background-image: url("/public/images/checked.png");
+  background-size: 22.5px 14.5px;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #1f1f1f;
+}
+
+.active {
+  color: #eb9b63;
+}
+
+/* Modal Overlay */
+.return-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+}
+
+/* Modal Content */
+.return-modal-content {
+  position: fixed;
+  top: 47%;
+  left: 50%;
+  width: 840px;
+  height: 560px;
+  border-radius: 0px;
+  overflow: hidden;
+  background-color: white;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  border: 1px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding-bottom: 10px;
+}
+
+/* Modal Icon */
+.return-modal-image {
+  width: 145px;
+  height: 130px;
+}
+
+/* Modal Message */
+.return-modal-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.return-modal-message p {
+  color: #333;
+  font-size: 4.1rem;
+}
+
+.return-modal-message .return-highlight {
+  color: #d2691e;
+  font-weight: 600;
+  font-size: 4.1rem;
+}
+
+/* Modal Buttons */
+.return-modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.return-modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.return-modal-buttons .return-btn-cancel {
+  background: #757575;
+  color: #fff;
+  width: 280px;
+  height: 100px;
+  font-size: 4rem;
+  border-radius: 5px;
+  border: none;
+}
+
+.return-modal-buttons .return-btn-confirm {
+  background: #a4693f;
+  color: #fff;
+  width: 280px;
+  height: 100px;
+  font-size: 4rem;
+  border-radius: 5px;
+  border: none;
+}
+
+.return-modal-buttons .return-btn:hover {
+  opacity: 0.9;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
