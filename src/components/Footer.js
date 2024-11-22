@@ -85,7 +85,6 @@ const Footer = () => {
                   ></img>
                   <p>초기화</p>
                 </button>
-                <div className="second-up-footer-line"></div>
                 <button
                   className={
                     isHighContrast
@@ -128,7 +127,6 @@ const Footer = () => {
                   ></img>
                   <p>추가하기</p>
                 </button>
-                <div className="second-up-footer-line"></div>
                 <button
                   className={
                     isHighContrast
@@ -157,7 +155,54 @@ const Footer = () => {
       ) : (
         ""
       )}
-      {/* {path === "third" && (
+      
+      <div className={isHighContrast ? "contrast-down-footer" : "down-footer"}>
+        {path === "" ? (
+          <img
+            className="footer-coffeelogo"
+            src={
+              isHighContrast
+                ? "/images/logo_bottom.png"
+                : "/images/coffeelogo.png"
+            }
+            alt="coffee"
+          ></img>
+        ) : (
+          <div className="flex" onClick={() => setisReturnModal(true)}>
+            <img
+              className="black-circle"
+              src={
+                isHighContrast
+                  ? "/images/contrast_home.png"
+                  : "/images/homebtn.png"
+              }
+              alt="home"
+            ></img>
+
+            <p className="black-circle-text">처음으로</p>
+          </div>
+        )}
+
+        <div className="flex" onClick={() => setisAccessibilityModal(true)}>
+          <img
+            className="black-circle"
+            src={
+              isHighContrast
+                ? "/images/contrast_wheelchair.png"
+                : "/images/wheelchairbtn.png"
+            }
+            alt="wheelchair"
+          ></img>
+          <p className="black-circle-text">접근성</p>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Footer;
+
+{/* {path === "third" && (
         <div className="third-up-footer">
           <div style={{ width: "512px" }}>
             <div className="flex-between">
@@ -234,49 +279,3 @@ const Footer = () => {
           </div>
         </div>
       )} */}
-      
-      <div className={isHighContrast ? "contrast-down-footer" : "down-footer"}>
-        {path === "" ? (
-          <img
-            className="footer-coffeelogo"
-            src={
-              isHighContrast
-                ? "/images/logo_bottom.png"
-                : "/images/coffeelogo.png"
-            }
-            alt="coffee"
-          ></img>
-        ) : (
-          <div className="flex" onClick={() => setisReturnModal(true)}>
-            <img
-              className="black-circle"
-              src={
-                isHighContrast
-                  ? "/images/contrast_home.png"
-                  : "/images/homebtn.png"
-              }
-              alt="home"
-            ></img>
-
-            <p className="black-circle-text">처음으로</p>
-          </div>
-        )}
-
-        <div className="flex" onClick={() => setisAccessibilityModal(true)}>
-          <img
-            className="black-circle"
-            src={
-              isHighContrast
-                ? "/images/contrast_wheelchair.png"
-                : "/images/wheelchairbtn.png"
-            }
-            alt="wheelchair"
-          ></img>
-          <p className="black-circle-text">접근성</p>
-        </div>
-      </div>
-    </>
-  );
-};
-
-export default Footer;

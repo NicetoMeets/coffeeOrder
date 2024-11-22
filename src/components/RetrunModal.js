@@ -15,22 +15,54 @@ const ReturnModal = ({}) => {
   if (isReturnModal) {
     return (
       <>
-        <div className="return-modal-overlay"></div>
-        <div className="return-modal-content">
+        <div
+          className={
+            isHighContrast
+              ? "contrast-return-modal-overlay"
+              : "return-modal-overlay"
+          }
+        ></div>
+        <div
+          className={
+            isHighContrast
+              ? "contrast-return-modal-content"
+              : "return-modal-content"
+          }
+        >
           <img
             className="return-modal-image"
-            src={"/images/ico_notice.png"}
+            src={
+              isHighContrast
+                ? "/images/contrast-Group 13.png"
+                : "/images/ico_notice.png"
+            }
           ></img>
-          <div className="return-modal-message">
+          <div
+            className={
+              isHighContrast
+                ? "contrast-return-modal-message"
+                : "return-modal-message"
+            }
+          >
             <p>
-              <span className="return-highlight" style={{ color: "#A4693F" }}>
+              <span
+                className="return-highlight"
+                style={
+                  isHighContrast ? { color: "#FFE101" } : { color: "#A4693F" }
+                }
+              >
                 시작화면
               </span>
               으로 돌아갑니다
             </p>
             <p>
               계속 진행하시려면{" "}
-              <span className="return-highlight" style={{ color: "#A4693F" }}>
+              <span
+                className="return-highlight"
+                style={
+                  isHighContrast ? { color: "#FFE101" } : { color: "#A4693F" }
+                }
+              >
                 처음으로
               </span>{" "}
               버튼을 누르세요
@@ -38,13 +70,13 @@ const ReturnModal = ({}) => {
           </div>
           <div className="return-modal-buttons">
             <button
-              className="return-btn-cancel"
+              className={isHighContrast? "contrast-return-btn-cancel":"return-btn-cancel"}
               onClick={() => setisReturnModal(false)}
             >
               취소
             </button>
             <button
-              className="return-btn-confirm"
+              className={isHighContrast? "contrast-return-btn-confirm":"return-btn-confirm"}
               onClick={() => {
                 navigate("/");
 

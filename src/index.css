@@ -4,11 +4,13 @@
   box-sizing: border-box;
   font-family: "Pretendard";
 }
+
 img {
   display: block;
   width: 100%;
-  vertical-align: middle;
+  /* vertical-align: middle; */
 }
+
 html,
 body {
   font-size: 62.5%;
@@ -36,6 +38,20 @@ a {
   justify-content: center;
   align-items: center;
   padding: 0 30px;
+  border-bottom: 1px solid lightgray;
+}
+
+.contrast-up-header {
+  width: 1080px;
+  height: 70px;
+  background-color: black;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 30px;
+  border-bottom: 1px solid lightgray;
 }
 
 .down-header {
@@ -49,6 +65,21 @@ a {
   justify-content: center;
   align-items: center;
   padding: 0 30px;
+  border-bottom: 1px solid lightgray;
+}
+
+.contrast-down-header {
+  width: 1080px;
+  height: 120px;
+  background-color: black;
+  top: 70px;
+  left: 0;
+  color: #ffe101;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 30px;
+  border-bottom: 0.5px solid lightgray;
 }
 
 .max-width {
@@ -73,24 +104,6 @@ a {
 .header-coffeelogo {
   width: 178px;
   height: 33px;
-}
-
-.top-horizontal-line {
-  width: 1080px;
-  position: fixed;
-  top: 69px;
-  height: 1px;
-  z-index: 2;
-  background-color: #707070;
-}
-
-.down-horizontal-line {
-  width: 1080px;
-  position: fixed;
-  bottom: 111px;
-  height: 1px;
-  z-index: 2;
-  background-color: #707070;
 }
 
 .flex {
@@ -136,15 +149,6 @@ a {
   padding: 0 30px;
 }
 
-.second-up-footer-line {
-  width: 100%;
-  bottom: 284px;
-  position: fixed;
-  left: 0;
-  height: 1px;
-  background: lightgray;
-}
-
 .second-up-footer {
   width: 1080px;
   height: 174px;
@@ -157,6 +161,7 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 0 50px;
+  border-top : 1px solid lightgray;
 }
 
 .contrast-second-up-footer {
@@ -171,6 +176,7 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 0 50px;
+  border-top : 1px solid lightgray;
 }
 
 .second-up-footer-text {
@@ -339,25 +345,47 @@ width: 1080px;
   background-color: #252525;
 }
 
+.contrast-step-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: #ffe101;
+}
+
 .step {
   display: flex;
   align-items: center;
   color: #929292; /* 기본 회색 */
 }
 
-.step .header-black-circle {
+
+.header-black-circle {
   width: 58px;
   height: 58px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  font-size: 4rem;
+  font-size: 3.7rem;;
   background-color: black;
   margin-right: 15px;
 }
 
-.step .border-circle {
+.contrast-header-black-circle {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 3.7rem;
+  background-color: #757575;
+  margin-right: 15px;
+  color: white;
+}
+
+.border-circle {
   border: 9px solid #4b403a;
   width: 74px;
   height: 74px;
@@ -365,13 +393,27 @@ width: 1080px;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  font-size: 4rem;
+  font-size: 3.7rem;
   color: #1f1f1f;
   background-color: #eb9b63;
   margin-right: 15px;
 }
 
-.step .checked-circle {
+.contrast-border-circle {
+  border: 9px solid #4b403a;
+  width: 74px;
+  height: 74px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 3.7rem;
+  color: #1f1f1f;
+  background-color: #FFE101;
+  margin-right: 15px;
+}
+
+.checked-circle {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
@@ -380,6 +422,22 @@ width: 1080px;
   width: 58px;
   height: 58px;
   background-color: #eb9b63; /* 주황색 */
+  background-image: url("/public/images/checked.png");
+  background-size: 22.5px 14.5px;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #1f1f1f;
+}
+
+.contrast-checked-circle {
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 15px;
+  display: flex;
+  width: 58px;
+  height: 58px;
+  background-color: #FFE101;
   background-image: url("/public/images/checked.png");
   background-size: 22.5px 14.5px;
   background-repeat: no-repeat;
@@ -405,6 +463,19 @@ width: 1080px;
   z-index: 9;
 }
 
+.contrast-return-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+}
+
 /* Modal Content */
 .return-modal-content {
   position: fixed;
@@ -422,7 +493,28 @@ width: 1080px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 35px;
+  padding-bottom: 10px;
+}
+
+.contrast-return-modal-content {
+  position: fixed;
+  top: 47%;
+  left: 50%;
+  width: 840px;
+  height: 560px;
+  border-radius: 0px;
+  overflow: hidden;
+  border: 1px solid lightgray;
+  background: black;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  border: 1px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
   padding-bottom: 10px;
 }
 
@@ -443,28 +535,31 @@ width: 1080px;
 .return-modal-message p {
   color: #333;
   font-size: 4.1rem;
+  text-align: center;
+}
+
+.contrast-return-modal-message p {
+  color: white;
+  font-size: 4.1rem;
+  text-align: center;
 }
 
 .return-modal-message .return-highlight {
   color: #d2691e;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 4.1rem;
 }
 
 /* Modal Buttons */
 .return-modal-buttons {
   display: flex;
-  justify-content: space-around;
-  margin-top: 10px;
-}
-
-.return-modal-buttons {
-  display: flex;
   justify-content: center;
-  gap: 25px;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
 }
 
-.return-modal-buttons .return-btn-cancel {
+.return-btn-cancel {
   background: #757575;
   color: #fff;
   width: 280px;
@@ -475,9 +570,31 @@ width: 1080px;
   font-weight: 500;
 }
 
-.return-modal-buttons .return-btn-confirm {
+.contrast-return-btn-cancel {
+  background: #252525;
+  color: #B8B8B8;
+  width: 280px;
+  height: 100px;
+  font-size: 4rem;
+  border-radius: 5px;
+  border: none;
+  font-weight: 500;
+}
+
+.return-btn-confirm {
   background: #a4693f;
   color: #fff;
+  width: 280px;
+  height: 100px;
+  font-size: 4rem;
+  border-radius: 5px;
+  border: none;
+  font-weight: 500;
+}
+
+.contrast-return-btn-confirm {
+  background: #FFE101;
+  color: black;
   width: 280px;
   height: 100px;
   font-size: 4rem;
@@ -500,6 +617,19 @@ width: 1080px;
   z-index: 9;
 }
 
+.contrast-accessibility-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+}
+
 .accessibility-modal-content {
   position: fixed;
   top: 56%;
@@ -510,7 +640,7 @@ width: 1080px;
   overflow: hidden;
   transform: translate(-50%, -50%);
   z-index: 10;
-  border: 1px solid lightgray;
+  border: 2px solid white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -526,7 +656,21 @@ width: 1080px;
   justify-content: center;
   align-items: center;
   gap: 40px;
+  border-bottom: 1px solid lightgray;
 }
+
+.contrast-accessibility-up-content {
+  width: 840px;
+  height: 350px;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  border-bottom: 1px solid lightgray;
+}
+
 
 .accessibility-down-content {
   width: 840px;
@@ -538,6 +682,19 @@ width: 1080px;
   align-items: center;
   padding: 90px;
   color: #1f1f1f;
+  font-weight: 500;
+}
+
+.contrast-accessibility-down-content {
+  width: 840px;
+  height: 870px;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 90px;
+  color: white;
   font-weight: 500;
 }
 
@@ -638,9 +795,31 @@ width: 1080px;
   font-weight: 500;
 }
 
+.contrast-accessibility-btn-cancel {
+  background: #252525;
+  color: #B8B8B8;
+  width: 290px;
+  height: 105px;
+  font-size: 4rem;
+  border-radius: 10px;
+  border: none;
+  font-weight: 500;
+}
+
 .accessibility-btn-confirm {
   background: #a4693f;
   color: #fffcf6;
+  width: 290px;
+  height: 105px;
+  font-size: 4rem;
+  border-radius: 10px;
+  border: none;
+  font-weight: 500;
+}
+
+.contrast-accessibility-btn-confirm {
+  background: #FFE101;
+  color: black;
   width: 290px;
   height: 105px;
   font-size: 4rem;

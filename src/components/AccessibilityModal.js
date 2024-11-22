@@ -17,9 +17,15 @@ const AccessibilityModal = ({}) => {
   if (isAccessibilityModal) {
     return (
       <>
-        <div className="accessibility-modal-overlay"></div>
-        <div className="accessibility-modal-content">
-          <div className="accessibility-up-content">
+        <div
+          className={
+            isHighContrast
+              ? "contrast-accessibility-modal-overlay"
+              : "accessibility-modal-overlay"
+          }
+        ></div>
+        <div className= "accessibility-modal-content">
+          <div className={isHighContrast? "contrast-accessibility-up-content": "accessibility-up-content"}>
             <div
               style={{ color: "#E7E3E0", fontSize: "6rem", fontWeight: "600" }}
             >
@@ -28,7 +34,7 @@ const AccessibilityModal = ({}) => {
             <div>
               <div style={{ color: "#E7E3E0", fontSize: "4.1rem" }}>
                 원하시는&nbsp;
-                <span style={{ color: "#EB9B63", fontSize: "4.1rem" }}>
+                <span style={isHighContrast?{ color: "#FFE101", fontSize: "4.1rem" }:{ color: "#EB9B63", fontSize: "4.1rem" }}>
                   접근성 옵션
                 </span>
                 을 선택하시고
@@ -40,13 +46,13 @@ const AccessibilityModal = ({}) => {
                   marginTop: "3px",
                 }}
               >
-                <span style={{ color: "#EB9B63" }}>적용하기</span>&nbsp;버튼을
+                <span style={isHighContrast?{ color: "#FFE101" }:{ color: "#EB9B63" }}>적용하기</span>&nbsp;버튼을
                 누르세요
               </div>
             </div>
           </div>
           <div
-            className="accessibility-down-content"
+            className={isHighContrast? "contrast-accessibility-down-content": "accessibility-down-content"}
             style={{ fontSize: "4rem" }}
           >
             <div className="accessibility-down-content-div1">
@@ -132,7 +138,11 @@ const AccessibilityModal = ({}) => {
             </div>
             <div className="accessibility-modal-buttons">
               <button
-                className="accessibility-btn-cancel"
+                className={
+                  isHighContrast
+                    ? "contrast-accessibility-btn-cancel"
+                    : "accessibility-btn-cancel"
+                }
                 onClick={() => {
                   setAccessibility({ isHighContrast: isHighContrast });
                   setisAccessibilityModal(false);
@@ -141,7 +151,11 @@ const AccessibilityModal = ({}) => {
                 적용안함
               </button>
               <button
-                className="accessibility-btn-confirm"
+                className={
+                  isHighContrast
+                    ? "contrast-accessibility-btn-confirm"
+                    : "accessibility-btn-confirm"
+                }
                 onClick={() => {
                   setisHighContrast(accessibility.isHighContrast);
                   setisAccessibilityModal(false);

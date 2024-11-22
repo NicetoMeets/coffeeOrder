@@ -134,6 +134,7 @@
   justify-content: center;
   align-items: center;
   color: #B8B8B8;
+  font-weight: 600;
   position: absolute;
   bottom: 174px;
 }
@@ -156,6 +157,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 600;
+}
+
+.contrast-forth-main-two-btn1 {
+  width: 360px;
+  height: 120px;
+  background: #252525;
+  border-radius: 10px;
+  color: #B8B8B8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
 }
 
 .forth-main-two-btn2 {
@@ -167,13 +181,36 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 600;
+}
+
+.contrast-forth-main-two-btn2 {
+  width: 360px;
+  height: 120px;
+  background: #FFE101;
+  border-radius: 10px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
 }
 
 .credit-pay-content {
   width: 100%;
+  height: 1618px;
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.contrast-credit-pay-content {
+  width: 100%;
+  height: 1618px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: black;
 }
 
 .credit-pay-text {
@@ -184,6 +221,10 @@
   top: 185px;
   font-size: 4.8rem;
   font-weight: 600;
+}
+
+.contrast-credit-pay-content.credit-pay-text.span {
+  color: #FFE101;
 }
 
 .credit-pay-image {
