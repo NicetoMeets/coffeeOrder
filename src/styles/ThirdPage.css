@@ -1,13 +1,24 @@
 .third-content {
   position: relative;
-  max-width: 1080px;
-  width: 100%;
+  width: 1080px;
   height: calc(100% - 190px - 285px);
   font-size: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
+}
+
+.contrast-third-content {
+  position: relative;
+  width: 1080px;
+  height: calc(100% - 190px - 285px);
+  font-size: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background: black;
 }
 
 .third-up-content {
@@ -20,6 +31,17 @@
   align-items: center;
 }
 
+.contrast-third-up-content {
+  width: 100%;
+  height: 238px;
+  font-weight: 600;
+  font-size: 4.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
 .third-middle-content {
   width: 100%;
   height: 80px;
@@ -30,10 +52,20 @@
   align-items: center;
 }
 
+.contrast-third-middle-content {
+  width: 100%;
+  height: 80px;
+  background-color: #252525;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 .third-main-content {
   width: 100%;
-  height: 100%;
-  padding: 60px 75px;
+  height: 1127px;
+  padding: 30px 75px;
 }
 
 .order-item {
@@ -72,6 +104,17 @@
   border: 1px solid lightgray;
 }
 
+.contrast-order-image-div {
+  position: relative;
+  width: 105px;
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid lightgray;
+  background: white;
+}
+
 .order-image {
   width: 40px;
   height: 80px;
@@ -83,6 +126,15 @@
   width: 190px;
   word-break: keep-all;
   font-size: 4rem;
+}
+
+.contrast-order-name {
+  position: absolute;
+  left: 220px;
+  width: 190px;
+  word-break: keep-all;
+  font-size: 4rem;
+  color: white;
 }
 
 .order-quantity {
@@ -103,7 +155,29 @@
   cursor: pointer;
 }
 
+.contrast-qty-btn {
+  width: 75px;
+  height: 73px;
+  background-color: black;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-size: 4rem;
+  color: white;
+  cursor: pointer;
+}
+
 .qty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  text-align: center;
+  border: none;
+  width: 75px;
+  height: 73px;
+}
+
+.contrast-qty {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -112,12 +186,24 @@
   border: 1px solid lightgray;
   width: 75px;
   height: 73px;
+  color: #ffe101;
+  background: #252525;
 }
 
 .order-price {
   position: absolute;
   left: 720px;
   color: #1f1f1f;
+  font-size: 4rem;
+  margin-left: 10px;
+  min-width: 80px;
+  text-align: right;
+}
+
+.contrast-order-price {
+  position: absolute;
+  left: 720px;
+  color: white;
   font-size: 4rem;
   margin-left: 10px;
   min-width: 80px;
@@ -133,8 +219,8 @@
 }
 
 /* 페이지네이션 */
-.third-pagination {
-  position: absolute;
+.pagination {
+  position:absolute;
   bottom: 45px;
   display: flex;
   justify-content: center;
@@ -142,7 +228,16 @@
   gap: 45px;
 }
 
-.third-pagination button {
+.contrast-pagination {
+  position:absolute;
+  bottom: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 45px;
+}
+
+.pagination button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -157,7 +252,28 @@
   cursor: pointer;
 }
 
-.third-pagination button:disabled {
+.pagination button:disabled {
+  background-color: e5e5e5;
+  border: 1px solid gray;
+  cursor: not-allowed;
+}
+
+.contrast-pagination button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  width: 184px;
+  height: 64px;
+  background-color: black;
+  color: #757575;
+  border: 1px solid gray;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contrast-pagination button:disabled {
   background-color: e5e5e5;
   border: 1px solid gray;
   cursor: not-allowed;

@@ -6,6 +6,8 @@ import { AppContext } from "../App";
 const ThirdPage = () => {
   const navigate = useNavigate();
   const {
+    isHighContrast,
+    setisHighContrast,
     tabs,
     menuItems,
     selectedTab,
@@ -49,12 +51,36 @@ const ThirdPage = () => {
       setCurrentPage(currentPage + 1);
     }
   };
+
   return (
-    <div className="third-content">
-      <div className="third-up-content">
-        <span style={{ color: "#8C532C" }}>결제방법</span>을 선택하세요
+    <div
+      className={isHighContrast ? "contrast-third-content" : "third-content"}
+    >
+      <div
+        className={
+          isHighContrast ? "contrast-third-up-content" : "third-up-content"
+        }
+      >
+        <span
+          style={isHighContrast ? { color: "#FFE101" } : { color: "#8C532C" }}
+        >
+          내역
+        </span>
+        을 확인하시고&nbsp;
+        <span
+          style={isHighContrast ? { color: "#FFE101" } : { color: "#8C532C" }}
+        >
+          결제하기
+        </span>
+        &nbsp;버튼을 누르세요
       </div>
-      <div className="third-middle-content">
+      <div
+        className={
+          isHighContrast
+            ? "contrast-third-middle-content"
+            : "third-middle-content"
+        }
+      >
         <p style={{ marginLeft: "110px" }}>메뉴명</p>
         <p style={{ marginLeft: "110px" }}>수량</p>
         <p style={{ marginLeft: "55px" }}>가격</p>
@@ -62,35 +88,57 @@ const ThirdPage = () => {
       </div>
       <div className="third-main-content">
         {currentItems.map((item, i) => (
-          <>
-            <div className="order-item" key={item.id}>
-              <div className="order-image-div">
+          <div key={item.id}>
+            <div className="order-item">
+              <div
+                className={
+                  isHighContrast
+                    ? "contrast-order-image-div"
+                    : "order-image-div"
+                }
+              >
                 <div className="order-index">{i + 1}</div>
                 <img src={item.img} alt={item.name} className="order-image" />
               </div>
 
-              <p className="order-name">{item.name}</p>
+              <p
+                className={
+                  isHighContrast ? "contrast-order-name" : "order-name"
+                }
+              >
+                {item.name}
+              </p>
               <div className="order-quantity">
                 <button
-                  className="qty-btn"
+                  className={isHighContrast ? "contrast-qty-btn" : "qty-btn"}
                   onClick={() => handleDecrease(item.id)}
                 >
                   -
                 </button>
-                <span className="qty">{quantities[item.id]}</span>
+                <span className={isHighContrast ? "contrast-qty" : "qty"}>
+                  {quantities[item.id]}
+                </span>
                 <button
-                  className="qty-btn"
+                  className={isHighContrast ? "contrast-qty-btn" : "qty-btn"}
                   onClick={() => handleIncrease(item.id)}
                 >
                   +
                 </button>
               </div>
-              <span className="order-price">
+              <span
+                className={
+                  isHighContrast ? "contrast-order-price" : "order-price"
+                }
+              >
                 {item.price * quantities[item.id]}원
               </span>
               <img
                 className="delete-btn"
-                src={"/images/trash.png"}
+                src={
+                  isHighContrast
+                    ? "/images/contrast_del.png"
+                    : "/images/trash.png"
+                }
                 onClick={() => {
                   setQuantities((prev) => ({ ...prev, [item.id]: 0 }));
                   if (totalPages <= 5) {
@@ -101,26 +149,23 @@ const ThirdPage = () => {
             </div>
 
             <div className="row-line"></div>
-          </>
+          </div>
         ))}
       </div>
-      <div className="third-pagination">
-        <button
-          className="page-btn"
-          onClick={handlePrevPage}
-          disabled={currentPage === 1}
-        >
+      <div className={isHighContrast ? "contrast-pagination" : "pagination"}>
+        <button onClick={handlePrevPage} disabled={currentPage === 1}>
           &lt;&nbsp; 이전
         </button>
-        <span className="page-number">
-          <span style={{ color: "#8C532C" }}>{currentPage}</span> /{" "}
+        <span style={{ fontSize: "40px" }}>
+          <span
+            style={isHighContrast ? { color: "#FFE101" } : { color: "#8C532C" }}
+          >
+            {currentPage}
+          </span>
+          <span style={{ color: "#707070" }}>&nbsp;/&nbsp;</span>
           <span style={{ color: "#707070" }}>{totalPages}</span>
         </span>
-        <button
-          className="page-btn"
-          onClick={handleNextPage}
-          disabled={currentPage === totalPages}
-        >
+        <button onClick={handleNextPage} disabled={currentPage === totalPages}>
           다음 &nbsp;&gt;
         </button>
       </div>

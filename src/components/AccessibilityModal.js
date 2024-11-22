@@ -1,9 +1,19 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { AppContext } from "../App";
 
 const AccessibilityModal = ({}) => {
-  const { isAccessibilityModal, setisAccessibilityModal } =
-    useContext(AppContext);
+  const {
+    isHighContrast,
+    setisHighContrast,
+    isAccessibilityModal,
+    setisAccessibilityModal,
+  } = useContext(AppContext);
+  const [accessibility, setAccessibility] = useState({
+    isHighContrast: isHighContrast,
+    //
+  });
+  console.log("isHighContrast", isHighContrast);
+  console.log(accessibility);
   if (isAccessibilityModal) {
     return (
       <>
@@ -55,12 +65,24 @@ const AccessibilityModal = ({}) => {
               <div className="flex" style={{ gap: "10px" }}>
                 <div
                   className={`accessibility-down-content-div-btn1 ${
-                    1 ? "accessibility-btn-active" : ""
+                    accessibility.isHighContrast
+                      ? ""
+                      : "accessibility-btn-active"
                   }`}
+                  onClick={() => setAccessibility({ isHighContrast: false })}
                 >
                   끔
                 </div>
-                <div className="accessibility-down-content-div-btn1">켬</div>
+                <div
+                  className={`accessibility-down-content-div-btn1 ${
+                    accessibility.isHighContrast
+                      ? "accessibility-btn-active"
+                      : ""
+                  }`}
+                  onClick={() => setAccessibility({ isHighContrast: true })}
+                >
+                  켬
+                </div>
               </div>
             </div>
             <div className="accessibility-down-content-line"></div>
@@ -111,11 +133,22 @@ const AccessibilityModal = ({}) => {
             <div className="accessibility-modal-buttons">
               <button
                 className="accessibility-btn-cancel"
-                onClick={() => setisAccessibilityModal(false)}
+                onClick={() => {
+                  setAccessibility({ isHighContrast: isHighContrast });
+                  setisAccessibilityModal(false);
+                }}
               >
                 적용안함
               </button>
-              <button className="accessibility-btn-confirm">적용하기</button>
+              <button
+                className="accessibility-btn-confirm"
+                onClick={() => {
+                  setisHighContrast(accessibility.isHighContrast);
+                  setisAccessibilityModal(false);
+                }}
+              >
+                적용하기
+              </button>
             </div>
           </div>
         </div>

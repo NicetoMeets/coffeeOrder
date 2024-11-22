@@ -4,16 +4,32 @@ import "../styles/ForthPage.css";
 import { AppContext } from "../App";
 
 const ForthPage = () => {
-  const { totalSum } = useContext(AppContext);
+  const { totalSum, isHighContrast, setisHighContrast } =
+    useContext(AppContext);
   const isCreditPayContent = 0;
   return (
-    <div className="forth-content">
+    <div
+      className={isHighContrast ? "contrast-forth-content" : "forth-content"}
+    >
       {isCreditPayContent === 0 ? (
         <>
           <div className="forth-up-content">
-            <span style={{ color: "#8C532C" }}>결제방법</span>을 선택하세요
+            <span
+              style={
+                isHighContrast ? { color: "#FFE101" } : { color: "#8C532C" }
+              }
+            >
+              결제방법
+            </span>
+            을 선택하세요
           </div>
-          <div className="forth-middle-content">
+          <div
+            className={
+              isHighContrast
+                ? "contrast-forth-middle-content"
+                : "forth-middle-content"
+            }
+          >
             <span>결제금액</span>
             <span style={{ fontSize: "8rem" }}>
               {totalSum.toLocaleString("ko-KR")}
@@ -21,7 +37,7 @@ const ForthPage = () => {
           </div>
           <div className="forth-main-content">
             <div className="forth-main-flex">
-              <div className="pay-type-div">
+              <div className={isHighContrast ? "contrast-pay-type-div" : "pay-type-div"}>
                 <img
                   style={{ width: "125px", height: "85px" }}
                   src="/images/img_credit_card.png"
@@ -29,7 +45,7 @@ const ForthPage = () => {
                 ></img>
                 <p>신용카드</p>
               </div>
-              <div className="pay-type-div">
+              <div className={isHighContrast ? "contrast-pay-type-div" : "pay-type-div"}>
                 <img
                   style={{ width: "110px", height: "200px" }}
                   src="/images/img_Mpay.png"
@@ -46,7 +62,7 @@ const ForthPage = () => {
                 <p>QR 페이</p>
               </div> */}
             </div>
-            <div className="forth-main-btn">취소</div>
+            <div className={isHighContrast ? "contrast-forth-main-btn" : "forth-main-btn"}>취소</div>
           </div>
         </>
       ) : isCreditPayContent === 1 ? (

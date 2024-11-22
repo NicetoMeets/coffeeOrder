@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { AppContext } from "../App";
 import "../styles/SecondPage.css";
 import { useNavigate } from "react-router-dom";
@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 const SecondPage = () => {
   const navigate = useNavigate();
   const {
+    isHighContrast,
+    setisHighContrast,
     tabs,
     menuItems,
     selectedTab,
@@ -16,6 +18,9 @@ const SecondPage = () => {
     totalCount,
     totalSum,
   } = useContext(AppContext);
+  useEffect(() => {
+    setSelectedTab("전체메뉴");
+  }, []);
   const itemsPerPage = 9; // 한 페이지에 표시할 항목 수
   const [currentPage, setCurrentPage] = useState(1);
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -33,7 +38,9 @@ const SecondPage = () => {
   };
 
   return (
-    <div className="second-content">
+    <div
+      className={isHighContrast ? "contrast-second-content" : "second-content"}
+    >
       <div className="second-up-content">
         {/* <div className="orange-line"></div>
         <div className="tab">
@@ -42,41 +49,45 @@ const SecondPage = () => {
         <div className="menu-tabs">
           <div className="menu-tabs-flex-div">
             <div
-              className={`tab-button ${
-                selectedTab === "전체메뉴" ? "active" : ""
-              }`}
+              className={`${
+                isHighContrast ? "contrast-tab-button" : "tab-button"
+              } ${selectedTab === "전체메뉴" ? "active" : ""}`}
               onClick={() => setSelectedTab("전체메뉴")}
             >
               전체메뉴
             </div>
             <div className="secondpage-short-colline"></div>
             <div
-              className={`tab-button ${selectedTab === "커피" ? "active" : ""}`}
+              className={`${
+                isHighContrast ? "contrast-tab-button" : "tab-button"
+              } ${selectedTab === "커피" ? "active" : ""}`}
               onClick={() => setSelectedTab("커피")}
             >
               커피
             </div>
             <div className="secondpage-short-colline"></div>
             <div
-              className={`tab-button ${
-                selectedTab === "밀크티" ? "active" : ""
-              }`}
+              className={`${
+                isHighContrast ? "contrast-tab-button" : "tab-button"
+              } ${selectedTab === "밀크티" ? "active" : ""}`}
               onClick={() => setSelectedTab("밀크티")}
             >
               밀크티
             </div>
             <div className="secondpage-short-colline"></div>
             <div
-              className={`tab-button ${
-                selectedTab === "스무디" ? "active" : ""
-              }`}
+              className={`${
+                isHighContrast ? "contrast-tab-button" : "tab-button"
+              } ${selectedTab === "스무디" ? "active" : ""}`}
               onClick={() => setSelectedTab("스무디")}
             >
               스무디
             </div>
             <div className="secondpage-short-colline"></div>
             <div
-              className={`tab-button ${selectedTab === "차" ? "active" : ""}`}
+              className={`${
+                isHighContrast ? "contrast-tab-button" : "tab-button"
+              } ${selectedTab === "차" ? "active" : ""}`}
               onClick={() => setSelectedTab("차")}
             >
               차
@@ -85,39 +96,45 @@ const SecondPage = () => {
           <div className="secondpage-long-rowline"></div>
           <div className="menu-tabs-flex-div">
             <div
-              className={`tab-button ${selectedTab === "주스" ? "active" : ""}`}
+              className={`${
+                isHighContrast ? "contrast-tab-button" : "tab-button"
+              } ${selectedTab === "주스" ? "active" : ""}`}
               onClick={() => setSelectedTab("주스")}
             >
               주스
             </div>
             <div className="secondpage-short-colline"></div>
             <div
-              className={`tab-button ${selectedTab === "라떼" ? "active" : ""}`}
+              className={`${
+                isHighContrast ? "contrast-tab-button" : "tab-button"
+              } ${selectedTab === "라떼" ? "active" : ""}`}
               onClick={() => setSelectedTab("라떼")}
             >
               라떼
             </div>
             <div className="secondpage-short-colline"></div>
             <div
-              className={`tab-button ${
-                selectedTab === "버블티" ? "active" : ""
-              }`}
+              className={`${
+                isHighContrast ? "contrast-tab-button" : "tab-button"
+              } ${selectedTab === "버블티" ? "active" : ""}`}
               onClick={() => setSelectedTab("버블티")}
             >
               버블티
             </div>
             <div className="secondpage-short-colline"></div>
             <div
-              className={`tab-button ${
-                selectedTab === "에이드" ? "active" : ""
-              }`}
+              className={`${
+                isHighContrast ? "contrast-tab-button" : "tab-button"
+              } ${selectedTab === "에이드" ? "active" : ""}`}
               onClick={() => setSelectedTab("에이드")}
             >
               에이드
             </div>
             <div className="secondpage-short-colline"></div>
             <div
-              className={`tab-button ${selectedTab === "기타" ? "active" : ""}`}
+              className={`${
+                isHighContrast ? "contrast-tab-button" : "tab-button"
+              } ${selectedTab === "기타" ? "active" : ""}`}
               onClick={() => setSelectedTab("기타")}
             >
               기타
@@ -146,24 +163,24 @@ const SecondPage = () => {
       <div className="menu-grid">
         {currentItems.map((item) => (
           <div
-            className="menu-item"
+            className={isHighContrast ? "contrast-menu-item" : "menu-item"}
             onClick={() => handleIncrease(item.id)}
             key={item.id}
           >
             <img src={item.img} alt={item.name} />
-            <div className="txt-box">
+            <div className={isHighContrast ? "contrast-txt-box" : "txt-box"}>
               <p>{item.name}</p>
               <p>{item.price}원</p>
             </div>
           </div>
         ))}
       </div>
-      <div className="pagination">
+      <div className={isHighContrast ? "contrast-pagination" : "pagination"}>
         <button onClick={handlePrevPage} disabled={currentPage === 1}>
           &lt;&nbsp; 이전
         </button>
         <span style={{ fontSize: "40px" }}>
-          <span style={{ color: "#8C532C" }}>{currentPage}</span> /{" "}
+          <span style={isHighContrast ? {color: "#FFE101"} :{ color: "#8C532C" }}>{currentPage}</span><span style={{ color: "#707070" }}>&nbsp;/&nbsp;</span>
           <span style={{ color: "#707070" }}>{totalPages}</span>
         </span>
         <button onClick={handleNextPage} disabled={currentPage === totalPages}>

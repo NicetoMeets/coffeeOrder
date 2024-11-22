@@ -6,6 +6,8 @@ import AccessibilityModal from "./AccessibilityModal";
 
 const Footer = () => {
   const {
+    isHighContrast,
+    setisHighContrast,
     tabs,
     menuItems,
     selectedTab,
@@ -31,26 +33,30 @@ const Footer = () => {
       <ReturnModal></ReturnModal>
       <AccessibilityModal></AccessibilityModal>
       {path === "second" || path === "third" ? (
-        <div className="second-up-footer">
+        <div
+          className={
+            isHighContrast ? "contrast-second-up-footer" : "second-up-footer"
+          }
+        >
           <div className="flex-between" style={{ width: "560px" }}>
             <p style={{ color: "#8b8b8b", fontWeight: "600" }}>주문수량</p>
             <p
-              style={{
-                color: "#EB9B63",
-                fontSize: "4.5rem",
-                marginTop: "-5px",
-              }}
+              className={
+                isHighContrast
+                  ? "contrast-second-up-footer-text"
+                  : "second-up-footer-text"
+              }
             >
               {totalCount}개
             </p>
             <div className="short-colline"></div>
             <p style={{ color: "#8b8b8b", fontWeight: "600" }}>금액</p>
             <p
-              style={{
-                color: "#EB9B63",
-                fontSize: "4.5rem",
-                marginTop: "-5px",
-              }}
+              className={
+                isHighContrast
+                  ? "contrast-second-up-footer-text"
+                  : "second-up-footer-text"
+              }
             >
               {totalSum.toLocaleString("ko-KR")}원
             </p>
@@ -59,7 +65,11 @@ const Footer = () => {
             {path === "second" && (
               <>
                 <button
-                  className="second-footer-btn"
+                  className={
+                    isHighContrast
+                      ? "contrast-second-footer-btn"
+                      : "second-footer-btn"
+                  }
                   onClick={() => {
                     setQuantities(
                       menuItems.reduce(
@@ -75,17 +85,25 @@ const Footer = () => {
                   ></img>
                   <p>초기화</p>
                 </button>
+                <div className="second-up-footer-line"></div>
                 <button
-                  className="second-footer-btn"
+                  className={
+                    isHighContrast
+                      ? "contrast-second-footer-btn2"
+                      : "second-footer-btn2"
+                  }
                   onClick={() => {
                     path === "second" ? navigate("/third") : navigate("/forth");
                   }}
-                  style={{ backgroundColor: "#A4693F" }}
                   disabled={totalCount === 0}
                 >
                   <img
                     className="footer-btn-icon"
-                    src={"/images/ico_order.png"}
+                    src={
+                      isHighContrast
+                        ? "/images/contrast_ico_order.png"
+                        : "/images/ico_order.png"
+                    }
                   ></img>
                   <p>주문</p>
                 </button>
@@ -95,7 +113,11 @@ const Footer = () => {
             {path === "third" && (
               <>
                 <button
-                  className="second-footer-btn"
+                  className={
+                    isHighContrast
+                      ? "contrast-second-footer-btn"
+                      : "second-footer-btn"
+                  }
                   onClick={() => {
                     navigate("/second");
                   }}
@@ -106,17 +128,25 @@ const Footer = () => {
                   ></img>
                   <p>추가하기</p>
                 </button>
+                <div className="second-up-footer-line"></div>
                 <button
-                  className="second-footer-btn"
+                  className={
+                    isHighContrast
+                      ? "contrast-second-footer-btn2"
+                      : "second-footer-btn2"
+                  }
                   onClick={() => {
                     path === "second" ? navigate("/third") : navigate("/forth");
                   }}
-                  style={{ backgroundColor: "#A4693F" }}
                   disabled={totalCount === 0}
                 >
                   <img
                     className="footer-btn-icon"
-                    src={"/images/Mask group.png"}
+                    src={
+                      isHighContrast
+                        ? "/images/contrast_Mask group.png"
+                        : "/images/Mask group.png"
+                    }
                   ></img>
                   <p>결제</p>
                 </button>
@@ -204,19 +234,27 @@ const Footer = () => {
           </div>
         </div>
       )} */}
-      <div className="down-horizontal-line"></div>
-      <div className="down-footer">
+      
+      <div className={isHighContrast ? "contrast-down-footer" : "down-footer"}>
         {path === "" ? (
           <img
             className="footer-coffeelogo"
-            src="/images/coffeelogo.png"
+            src={
+              isHighContrast
+                ? "/images/logo_bottom.png"
+                : "/images/coffeelogo.png"
+            }
             alt="coffee"
           ></img>
         ) : (
           <div className="flex" onClick={() => setisReturnModal(true)}>
             <img
               className="black-circle"
-              src="/images/homebtn.png"
+              src={
+                isHighContrast
+                  ? "/images/contrast_home.png"
+                  : "/images/homebtn.png"
+              }
               alt="home"
             ></img>
 
@@ -224,14 +262,17 @@ const Footer = () => {
           </div>
         )}
 
-        <div className="flex">
+        <div className="flex" onClick={() => setisAccessibilityModal(true)}>
           <img
             className="black-circle"
-            src="/images/wheelchairbtn.png"
+            src={
+              isHighContrast
+                ? "/images/contrast_wheelchair.png"
+                : "/images/wheelchairbtn.png"
+            }
             alt="wheelchair"
           ></img>
-
-          <p className="black-circle-text" onClick={() => setisAccessibilityModal(true)}>접근성</p>
+          <p className="black-circle-text">접근성</p>
         </div>
       </div>
     </>

@@ -4,8 +4,14 @@ import { useNavigate } from "react-router-dom";
 
 const ReturnModal = ({}) => {
   const navigate = useNavigate();
-  const { menuItems, setQuantities, isReturnModal, setisReturnModal } =
-    useContext(AppContext);
+  const {
+    isHighContrast,
+    setisHighContrast,
+    menuItems,
+    setQuantities,
+    isReturnModal,
+    setisReturnModal,
+  } = useContext(AppContext);
   if (isReturnModal) {
     return (
       <>

@@ -7,49 +7,6 @@ import SecondPage from "./pages/SecondPage";
 import ThirdPage from "./pages/ThirdPage";
 import ForthPage from "./pages/ForthPage";
 
-// 첫 번째 페이지에서는 푸터, 나머지 페이지에서는 헤더와 푸터
-const LayoutWithFooterOnly = () => (
-  <>
-    <div className="wrap">
-      <Outlet />
-      <Footer />
-    </div>
-  </>
-);
-const LayoutWithHeaderAndFooter = () => (
-  <>
-    <div className="wrap">
-      <Header />
-      <Outlet />
-      <Footer />
-    </div>
-  </>
-);
-
-// 라우터 설정
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <LayoutWithFooterOnly />,
-    children: [{ index: true, element: <FirstPage /> }],
-  },
-  {
-    path: "/second",
-    element: <LayoutWithHeaderAndFooter />,
-    children: [{ index: true, element: <SecondPage /> }],
-  },
-  {
-    path: "/third",
-    element: <LayoutWithHeaderAndFooter />,
-    children: [{ index: true, element: <ThirdPage /> }],
-  },
-  {
-    path: "/forth",
-    element: <LayoutWithHeaderAndFooter />,
-    children: [{ index: true, element: <ForthPage /> }],
-  },
-]);
-
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
@@ -130,6 +87,7 @@ export const AppProvider = ({ children }) => {
       img: "/images/콜드브루.png",
     },
   ];
+  const [isHighContrast, setisHighContrast] = useState(false);
   const [selectedTab, setSelectedTab] = useState("전체메뉴");
   const [quantities, setQuantities] = useState(
     menuItems.reduce((acc, item) => ({ ...acc, [item.id]: 0 }), {})
@@ -170,6 +128,8 @@ export const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        isHighContrast,
+        setisHighContrast,
         tabs,
         menuItems,
         selectedTab,
@@ -192,6 +152,50 @@ export const AppProvider = ({ children }) => {
     </AppContext.Provider>
   );
 };
+
+// 첫 번째 페이지에서는 푸터, 나머지 페이지에서는 헤더와 푸터
+const LayoutWithFooterOnly = () => (
+  <>
+    <div className="wrap">
+      <Outlet />
+      <Footer />
+    </div>
+  </>
+);
+const LayoutWithHeaderAndFooter = () => (
+  <>
+    <div className="wrap">
+      <Header />
+      <Outlet />
+      <Footer />
+    </div>
+  </>
+);
+
+// 라우터 설정
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <LayoutWithFooterOnly />,
+    children: [{ index: true, element: <FirstPage /> }],
+  },
+  {
+    path: "/second",
+    element: <LayoutWithHeaderAndFooter />,
+    children: [{ index: true, element: <SecondPage /> }],
+  },
+  {
+    path: "/third",
+    element: <LayoutWithHeaderAndFooter />,
+    children: [{ index: true, element: <ThirdPage /> }],
+  },
+  {
+    path: "/forth",
+    element: <LayoutWithHeaderAndFooter />,
+    children: [{ index: true, element: <ForthPage /> }],
+  },
+]);
+
 
 const App = () => {
   return (
