@@ -35,12 +35,96 @@ const SecondPage = () => {
   return (
     <div className="second-content">
       <div className="second-up-content">
-        <div className="orange-line"></div>
+        {/* <div className="orange-line"></div>
         <div className="tab">
           <span className="">메뉴</span>
-        </div>
+        </div> */}
         <div className="menu-tabs">
-          {tabs.map((a, i) => (
+          <div className="menu-tabs-flex-div">
+            <div
+              className={`tab-button ${
+                selectedTab === "전체메뉴" ? "active" : ""
+              }`}
+              onClick={() => setSelectedTab("전체메뉴")}
+            >
+              전체메뉴
+            </div>
+            <div className="secondpage-short-colline"></div>
+            <div
+              className={`tab-button ${selectedTab === "커피" ? "active" : ""}`}
+              onClick={() => setSelectedTab("커피")}
+            >
+              커피
+            </div>
+            <div className="secondpage-short-colline"></div>
+            <div
+              className={`tab-button ${
+                selectedTab === "밀크티" ? "active" : ""
+              }`}
+              onClick={() => setSelectedTab("밀크티")}
+            >
+              밀크티
+            </div>
+            <div className="secondpage-short-colline"></div>
+            <div
+              className={`tab-button ${
+                selectedTab === "스무디" ? "active" : ""
+              }`}
+              onClick={() => setSelectedTab("스무디")}
+            >
+              스무디
+            </div>
+            <div className="secondpage-short-colline"></div>
+            <div
+              className={`tab-button ${selectedTab === "차" ? "active" : ""}`}
+              onClick={() => setSelectedTab("차")}
+            >
+              차
+            </div>
+          </div>
+          <div className="secondpage-long-rowline"></div>
+          <div className="menu-tabs-flex-div">
+            <div
+              className={`tab-button ${selectedTab === "주스" ? "active" : ""}`}
+              onClick={() => setSelectedTab("주스")}
+            >
+              주스
+            </div>
+            <div className="secondpage-short-colline"></div>
+            <div
+              className={`tab-button ${selectedTab === "라떼" ? "active" : ""}`}
+              onClick={() => setSelectedTab("라떼")}
+            >
+              라떼
+            </div>
+            <div className="secondpage-short-colline"></div>
+            <div
+              className={`tab-button ${
+                selectedTab === "버블티" ? "active" : ""
+              }`}
+              onClick={() => setSelectedTab("버블티")}
+            >
+              버블티
+            </div>
+            <div className="secondpage-short-colline"></div>
+            <div
+              className={`tab-button ${
+                selectedTab === "에이드" ? "active" : ""
+              }`}
+              onClick={() => setSelectedTab("에이드")}
+            >
+              에이드
+            </div>
+            <div className="secondpage-short-colline"></div>
+            <div
+              className={`tab-button ${selectedTab === "기타" ? "active" : ""}`}
+              onClick={() => setSelectedTab("기타")}
+            >
+              기타
+            </div>
+          </div>
+
+          {/* {tabs.map((a, i) => (
             <>
               <button
                 key={i}
@@ -54,7 +138,7 @@ const SecondPage = () => {
                 <div className="secondpage-short-colline"></div>
               )}
             </>
-          ))}
+          ))} */}
         </div>
       </div>
 
@@ -76,13 +160,14 @@ const SecondPage = () => {
       </div>
       <div className="pagination">
         <button onClick={handlePrevPage} disabled={currentPage === 1}>
-          이전
+          &lt;&nbsp; 이전
         </button>
         <span style={{ fontSize: "40px" }}>
-          <span style={{ color: "#8C532C" }}>{currentPage}</span> / <span style={{ color: "#707070" }}>{totalPages}</span>
+          <span style={{ color: "#8C532C" }}>{currentPage}</span> /{" "}
+          <span style={{ color: "#707070" }}>{totalPages}</span>
         </span>
         <button onClick={handleNextPage} disabled={currentPage === totalPages}>
-          다음
+          다음 &nbsp;&gt;
         </button>
       </div>
     </div>

@@ -134,6 +134,8 @@ export const AppProvider = ({ children }) => {
   const [quantities, setQuantities] = useState(
     menuItems.reduce((acc, item) => ({ ...acc, [item.id]: 0 }), {})
   );
+  const [isReturnModal, setisReturnModal] = useState(false);
+  const [isAccessibilityModal, setisAccessibilityModal] = useState(false);
 
   //수량 증가
   const handleIncrease = (id) => {
@@ -180,6 +182,10 @@ export const AppProvider = ({ children }) => {
         calculateTotal,
         totalCount,
         totalSum,
+        isReturnModal,
+        setisReturnModal,
+        isAccessibilityModal,
+        setisAccessibilityModal,
       }}
     >
       {children}

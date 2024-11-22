@@ -18,7 +18,7 @@ const ThirdPage = () => {
   } = useContext(AppContext);
   // 각 아이템의 수량을 관리
 
-  const ITEMS_PER_PAGE = 5; // 페이지당 항목 수
+  const ITEMS_PER_PAGE = 6; // 페이지당 항목 수
   const [currentPage, setCurrentPage] = useState(1);
 
   const filterMenuItems = (menuItems, quantities) => {
@@ -110,17 +110,18 @@ const ThirdPage = () => {
           onClick={handlePrevPage}
           disabled={currentPage === 1}
         >
-          〈 이전
+          &lt;&nbsp; 이전
         </button>
         <span className="page-number">
-        <span style={{ color: "#8C532C" }}>{currentPage}</span> / <span style={{ color: "#707070" }}>{totalPages}</span>
+          <span style={{ color: "#8C532C" }}>{currentPage}</span> /{" "}
+          <span style={{ color: "#707070" }}>{totalPages}</span>
         </span>
         <button
           className="page-btn"
           onClick={handleNextPage}
           disabled={currentPage === totalPages}
         >
-          다음 〉
+          다음 &nbsp;&gt;
         </button>
       </div>
     </div>

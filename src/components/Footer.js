@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AppContext } from "../App";
 import ReturnModal from "./RetrunModal";
+import AccessibilityModal from "./AccessibilityModal";
 
 const Footer = () => {
   const {
@@ -16,6 +17,10 @@ const Footer = () => {
     calculateSum,
     totalCount,
     totalSum,
+    isReturnModal,
+    setisReturnModal,
+    isAccessibilityModal,
+    setisAccessibilityModal,
   } = useContext(AppContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -23,7 +28,8 @@ const Footer = () => {
 
   return (
     <>
-    {/* <ReturnModal></ReturnModal> */}
+      <ReturnModal></ReturnModal>
+      <AccessibilityModal></AccessibilityModal>
       {path === "second" || path === "third" ? (
         <div className="second-up-footer">
           <div className="flex-between" style={{ width: "560px" }}>
@@ -91,7 +97,7 @@ const Footer = () => {
                 <button
                   className="second-footer-btn"
                   onClick={() => {
-                    navigate("/second")
+                    navigate("/second");
                   }}
                 >
                   <img
@@ -207,7 +213,7 @@ const Footer = () => {
             alt="coffee"
           ></img>
         ) : (
-          <Link to="/" className="flex">
+          <div className="flex" onClick={() => setisReturnModal(true)}>
             <img
               className="black-circle"
               src="/images/homebtn.png"
@@ -215,7 +221,7 @@ const Footer = () => {
             ></img>
 
             <p className="black-circle-text">처음으로</p>
-          </Link>
+          </div>
         )}
 
         <div className="flex">
@@ -225,7 +231,7 @@ const Footer = () => {
             alt="wheelchair"
           ></img>
 
-          <p className="black-circle-text">접근성</p>
+          <p className="black-circle-text" onClick={() => setisAccessibilityModal(true)}>접근성</p>
         </div>
       </div>
     </>
