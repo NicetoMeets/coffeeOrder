@@ -7,6 +7,8 @@ const ReturnModal = ({}) => {
   const {
     isHighContrast,
     setisHighContrast,
+    isCreditPayContent,
+    setisCreditPayContent,
     menuItems,
     setQuantities,
     isReturnModal,
@@ -70,22 +72,30 @@ const ReturnModal = ({}) => {
           </div>
           <div className="return-modal-buttons">
             <button
-              className={isHighContrast? "contrast-return-btn-cancel":"return-btn-cancel"}
+              className={
+                isHighContrast
+                  ? "contrast-return-btn-cancel"
+                  : "return-btn-cancel"
+              }
               onClick={() => setisReturnModal(false)}
             >
               취소
             </button>
             <button
-              className={isHighContrast? "contrast-return-btn-confirm":"return-btn-confirm"}
+              className={
+                isHighContrast
+                  ? "contrast-return-btn-confirm"
+                  : "return-btn-confirm"
+              }
               onClick={() => {
-                navigate("/");
-
+                setisCreditPayContent(0);
                 setQuantities(
                   menuItems.reduce(
                     (acc, item) => ({ ...acc, [item.id]: 0 }),
                     {}
                   )
                 );
+                navigate("/");
                 setisReturnModal(false);
               }}
             >

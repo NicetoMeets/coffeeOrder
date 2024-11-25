@@ -79,7 +79,7 @@ a {
   justify-content: center;
   align-items: center;
   padding: 0 30px;
-  border-bottom: 0.5px solid lightgray;
+  border-bottom: 1px solid lightgray;
 }
 
 .max-width {
@@ -123,7 +123,7 @@ a {
 .down-footer {
   /* height:var(--footerHeight) */
   width: 1080px;
-  height: 112px;
+  height: 113px;
   background-color: #252525;
   position: fixed;
   bottom: 0;
@@ -137,10 +137,11 @@ a {
 
 .contrast-down-footer {
   width: 1080px;
-  height: 112px;
+  height: 113px;
+  border-top: 1px solid gray;
   background-color: #000000;
   position: fixed;
-  bottom: 0;
+  bottom: 0px;
   left: 0;
   color: #fff;
   display: flex;
@@ -154,14 +155,14 @@ a {
   height: 174px;
   background-color: #252525;
   position: fixed;
-  bottom: 112px;
+  bottom: 111.5px;
   left: 0;
   color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 50px;
-  border-top : 1px solid lightgray;
+  border-top: 1px solid gray;
 }
 
 .contrast-second-up-footer {
@@ -169,14 +170,14 @@ a {
   height: 174px;
   background-color: #000000;
   position: fixed;
-  bottom: 112px;
+  bottom: 111.5px;
   left: 0;
   color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 50px;
-  border-top : 1px solid lightgray;
+  border-top: 1px solid gray;
 }
 
 .second-up-footer-text {
@@ -359,7 +360,6 @@ width: 1080px;
   color: #929292; /* 기본 회색 */
 }
 
-
 .header-black-circle {
   width: 58px;
   height: 58px;
@@ -367,7 +367,7 @@ width: 1080px;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  font-size: 3.7rem;;
+  font-size: 3.7rem;
   background-color: black;
   margin-right: 15px;
 }
@@ -409,7 +409,7 @@ width: 1080px;
   border-radius: 50%;
   font-size: 3.7rem;
   color: #1f1f1f;
-  background-color: #FFE101;
+  background-color: #ffe101;
   margin-right: 15px;
 }
 
@@ -437,7 +437,7 @@ width: 1080px;
   display: flex;
   width: 58px;
   height: 58px;
-  background-color: #FFE101;
+  background-color: #ffe101;
   background-image: url("/public/images/checked.png");
   background-size: 22.5px 14.5px;
   background-repeat: no-repeat;
@@ -572,7 +572,7 @@ width: 1080px;
 
 .contrast-return-btn-cancel {
   background: #252525;
-  color: #B8B8B8;
+  color: #b8b8b8;
   width: 280px;
   height: 100px;
   font-size: 4rem;
@@ -593,7 +593,7 @@ width: 1080px;
 }
 
 .contrast-return-btn-confirm {
-  background: #FFE101;
+  background: #ffe101;
   color: black;
   width: 280px;
   height: 100px;
@@ -670,7 +670,6 @@ width: 1080px;
   gap: 40px;
   border-bottom: 1px solid lightgray;
 }
-
 
 .accessibility-down-content {
   width: 840px;
@@ -752,6 +751,17 @@ width: 1080px;
   color: #757575;
 }
 
+.contrast-accessibility-down-content-div-btn {
+  width: 220px;
+  height: 80px;
+  border: 1px solid #bfbfbf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #b8b8b8;
+  background: #252525;
+}
+
 .accessibility-down-content-div-btn1 {
   width: 105px;
   height: 75px;
@@ -762,6 +772,17 @@ width: 1080px;
   color: #757575;
 }
 
+.contrast-accessibility-down-content-div-btn1 {
+  width: 105px;
+  height: 75px;
+  border: 1px solid #bfbfbf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #b8b8b8;
+  background: #252525;
+}
+
 .accessibility-down-content-div-btn2 {
   width: 80px;
   height: 75px;
@@ -770,6 +791,17 @@ width: 1080px;
   justify-content: center;
   align-items: center;
   color: #757575;
+}
+
+.contrast-accessibility-down-content-div-btn2 {
+  width: 80px;
+  height: 75px;
+  border: 1px solid #bfbfbf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #b8b8b8;
+  background: #252525;
 }
 
 .accessibility-down-content-line {
@@ -797,7 +829,7 @@ width: 1080px;
 
 .contrast-accessibility-btn-cancel {
   background: #252525;
-  color: #B8B8B8;
+  color: #b8b8b8;
   width: 290px;
   height: 105px;
   font-size: 4rem;
@@ -818,7 +850,7 @@ width: 1080px;
 }
 
 .contrast-accessibility-btn-confirm {
-  background: #FFE101;
+  background: #ffe101;
   color: black;
   width: 290px;
   height: 105px;
@@ -831,9 +863,19 @@ width: 1080px;
 .accessibility-btn-active {
   position: relative;
   background-image: url("/public/images/Vector 13.png");
-  background-position: 97% 5%;
+  background-position: 97.5% 5.5%;
   background-size: 12px 12px;
   background-repeat: no-repeat;
   background-color: #eedfd2; /* 활성화된 탭의 배경색 */
   color: #8c532c; /* 활성화된 탭의 텍스트 색 */
+}
+
+.contrast-accessibility-btn-active {
+  position: relative;
+  background-image: url("/public/images/contrast-Vector 13.png");
+  background-position: 97.5% 5.5%;
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+  background-color: #ffe101; /* 활성화된 탭의 배경색 */
+  color: black; /* 활성화된 탭의 텍스트 색 */
 }

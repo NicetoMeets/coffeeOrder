@@ -156,7 +156,7 @@ const ThirdPage = () => {
         <button onClick={handlePrevPage} disabled={currentPage === 1}>
           &lt;&nbsp; 이전
         </button>
-        <span style={{ fontSize: "40px" }}>
+        <span style={{ fontSize: "4rem" }}>
           <span
             style={isHighContrast ? { color: "#FFE101" } : { color: "#8C532C" }}
           >

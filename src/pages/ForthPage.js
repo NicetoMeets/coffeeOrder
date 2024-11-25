@@ -4,10 +4,14 @@ import "../styles/ForthPage.css";
 import { AppContext } from "../App";
 
 const ForthPage = () => {
-  const { totalSum, isHighContrast, setisHighContrast } =
-    useContext(AppContext);
+  const {
+    totalSum,
+    isHighContrast,
+    setisHighContrast,
+    isCreditPayContent,
+    setisCreditPayContent,
+  } = useContext(AppContext);
   const navigate = useNavigate();
-  const isCreditPayContent = 8;
   return (
     <div
       className={isHighContrast ? "contrast-forth-content" : "forth-content"}
@@ -40,11 +44,20 @@ const ForthPage = () => {
               {totalSum.toLocaleString("ko-KR")}
             </span>
           </div>
-          <div className="forth-main-content">
+          <div className={
+              isHighContrast
+                ? "contrast-forth-main-content"
+                : "forth-main-content"
+            }>
             <div className="forth-main-flex">
               <div
                 className={
                   isHighContrast ? "contrast-pay-type-div" : "pay-type-div"
+                }
+                onClick={() =>
+                  setisCreditPayContent(
+                    (isCreditPayContent) => isCreditPayContent + 1
+                  )
                 }
               >
                 <img
@@ -79,7 +92,10 @@ const ForthPage = () => {
               className={
                 isHighContrast ? "contrast-forth-main-btn" : "forth-main-btn"
               }
-              onClick={() => navigate("/third")}
+              onClick={() => {
+                setisCreditPayContent(0);
+                navigate("/third");
+              }}
             >
               취소
             </div>
@@ -119,12 +135,21 @@ const ForthPage = () => {
           <img
             className="credit-pay-image"
             src={"/images/img_card_in.png"}
+            onClick={() =>
+              setisCreditPayContent(
+                (isCreditPayContent) => isCreditPayContent + 1
+              )
+            }
           ></img>
           <div
             className={
               isHighContrast ? "contrast-forth-main-btn" : "forth-main-btn"
             }
-            onClick={() => navigate("/third")}
+            onClick={() => {
+              setisCreditPayContent(0);
+              navigate("/third");
+              navigate("/third");
+            }}
           >
             취소
           </div>
@@ -160,6 +185,11 @@ const ForthPage = () => {
           <img
             className="credit-pay-image"
             src={"/images/img_card_out.png"}
+            onClick={() =>
+              setisCreditPayContent(
+                (isCreditPayContent) => isCreditPayContent + 1
+              )
+            }
           ></img>
           <div
             className="forth-main-btn"
@@ -206,6 +236,11 @@ const ForthPage = () => {
           <img
             className="credit-pay-image"
             src={"/images/img_Mpay_big 1.png"}
+            onClick={() =>
+              setisCreditPayContent(
+                (isCreditPayContent) => isCreditPayContent + 1
+              )
+            }
           ></img>
           <div
             className={
@@ -230,6 +265,11 @@ const ForthPage = () => {
           <img
             className="credit-pay-image"
             src={"/images/img_QRpay_big.png"}
+            onClick={() =>
+              setisCreditPayContent(
+                (isCreditPayContent) => isCreditPayContent + 1
+              )
+            }
           ></img>
           <div
             className={
@@ -271,10 +311,31 @@ const ForthPage = () => {
           <img
             className="credit-pay-image"
             src={"/images/img_order_paper.png"}
+            onClick={() =>
+              setisCreditPayContent(
+                (isCreditPayContent) => isCreditPayContent + 1
+              )
+            }
           ></img>
           <div className="forth-main-two-btn">
-            <div className={isHighContrast?"contrast-forth-main-two-btn1" : "forth-main-two-btn1"}>영수증 출력</div>
-            <div className={isHighContrast? "contrast-forth-main-two-btn2": "forth-main-two-btn2"}>주문표만 출력</div>
+            <div
+              className={
+                isHighContrast
+                  ? "contrast-forth-main-two-btn1"
+                  : "forth-main-two-btn1"
+              }
+            >
+              영수증 출력
+            </div>
+            <div
+              className={
+                isHighContrast
+                  ? "contrast-forth-main-two-btn2"
+                  : "forth-main-two-btn2"
+              }
+            >
+              주문표만 출력
+            </div>
           </div>
         </div>
       ) : isCreditPayContent === 6 ? (
@@ -320,6 +381,11 @@ const ForthPage = () => {
           <img
             className="credit-pay-image"
             src={"/images/img_order_paper.png"}
+            onClick={() =>
+              setisCreditPayContent(
+                (isCreditPayContent) => isCreditPayContent + 1
+              )
+            }
           ></img>
           <div
             className="forth-main-btn"
@@ -375,6 +441,11 @@ const ForthPage = () => {
           <img
             className="credit-pay-image"
             src={"/images/img_order_paper.png"}
+            onClick={() =>
+              setisCreditPayContent(
+                (isCreditPayContent) => isCreditPayContent + 1
+              )
+            }
           ></img>
           <div
             className="forth-main-btn"

@@ -89,6 +89,7 @@ export const AppProvider = ({ children }) => {
   ];
   const [isHighContrast, setisHighContrast] = useState(false);
   const [selectedTab, setSelectedTab] = useState("전체메뉴");
+  const [isCreditPayContent, setisCreditPayContent] = useState(0);
   const [quantities, setQuantities] = useState(
     menuItems.reduce((acc, item) => ({ ...acc, [item.id]: 0 }), {})
   );
@@ -104,7 +105,7 @@ export const AppProvider = ({ children }) => {
   const handleDecrease = (id) => {
     setQuantities((prev) => ({
       ...prev,
-      [id]: prev[id] > 0 ? prev[id] - 1 : 0, // 0 이하로 내려가지 않도록 설정
+      [id]: prev[id] > 0 ? prev[id] - 1 : 0,
     }));
   };
 
@@ -130,6 +131,8 @@ export const AppProvider = ({ children }) => {
       value={{
         isHighContrast,
         setisHighContrast,
+        isCreditPayContent,
+        setisCreditPayContent,
         tabs,
         menuItems,
         selectedTab,
@@ -195,7 +198,6 @@ const router = createBrowserRouter([
     children: [{ index: true, element: <ForthPage /> }],
   },
 ]);
-
 
 const App = () => {
   return (
