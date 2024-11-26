@@ -6,7 +6,8 @@ const Header = () => {
   const location = useLocation();
   const path = location.pathname.split("/").at(-1);
 
-  const { isHighContrast, setisHighContrast } = useContext(AppContext);
+  const { isHighContrast, setisHighContrast, isLowScreen, setisLowScreen } =
+    useContext(AppContext);
   const isCreditPayContent = 1;
   return (
     <div>
@@ -99,7 +100,11 @@ const Header = () => {
             }
           >
             <li className="step">
-              <div className={isHighContrast? "contrast-checked-circle":"checked-circle"}></div>
+              <div
+                className={
+                  isHighContrast ? "contrast-checked-circle" : "checked-circle"
+                }
+              ></div>
               <span className="">메뉴선택</span>
               <span className="active" style={{ margin: " 0 20px" }}>
                 ›
@@ -159,14 +164,26 @@ const Header = () => {
               }
             >
               <li className="step">
-                <div className={isHighContrast? "contrast-checked-circle":"checked-circle"}></div>
+                <div
+                  className={
+                    isHighContrast
+                      ? "contrast-checked-circle"
+                      : "checked-circle"
+                  }
+                ></div>
                 <span className="">메뉴선택</span>
                 <span className="active" style={{ margin: " 0 20px" }}>
                   ›
                 </span>
               </li>
               <li className="step">
-                <div className={isHighContrast? "contrast-checked-circle":"checked-circle"}></div>
+                <div
+                  className={
+                    isHighContrast
+                      ? "contrast-checked-circle"
+                      : "checked-circle"
+                  }
+                ></div>
                 <span className="">내역확인</span>
                 <span className="" style={{ margin: " 0 20px" }}>
                   ›
@@ -209,21 +226,39 @@ const Header = () => {
               }
             >
               <li className="step">
-                <div className={isHighContrast? "contrast-checked-circle":"checked-circle"}></div>
+                <div
+                  className={
+                    isHighContrast
+                      ? "contrast-checked-circle"
+                      : "checked-circle"
+                  }
+                ></div>
                 <span className="">메뉴선택</span>
                 <span className="active" style={{ margin: " 0 20px" }}>
                   ›
                 </span>
               </li>
               <li className="step">
-                <div className={isHighContrast? "contrast-checked-circle":"checked-circle"}></div>
+                <div
+                  className={
+                    isHighContrast
+                      ? "contrast-checked-circle"
+                      : "checked-circle"
+                  }
+                ></div>
                 <span className="">내역확인</span>
                 <span className="" style={{ margin: " 0 20px" }}>
                   ›
                 </span>
               </li>
               <li className="step">
-                <div className={isHighContrast? "contrast-checked-circle":"checked-circle"}></div>
+                <div
+                  className={
+                    isHighContrast
+                      ? "contrast-checked-circle"
+                      : "checked-circle"
+                  }
+                ></div>
                 <span className="">결제</span>
                 <span className="" style={{ margin: " 0 20px" }}>
                   ›

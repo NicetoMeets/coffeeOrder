@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 const SecondPage = () => {
   const navigate = useNavigate();
   const {
+    isLowScreen,
+    setisLowScreen,
     isHighContrast,
     setisHighContrast,
     tabs,
@@ -161,7 +163,7 @@ const SecondPage = () => {
 
       {/* 컨텐츠 */}
       <div className="menu-grid">
-        {currentItems.map((item) => (
+        {currentItems?.map((item) => (
           <div
             className={isHighContrast ? "contrast-menu-item" : "menu-item"}
             onClick={() => handleIncrease(item.id)}
@@ -180,7 +182,12 @@ const SecondPage = () => {
           &lt;&nbsp; 이전
         </button>
         <span style={{ fontSize: "4rem" }}>
-          <span style={isHighContrast ? {color: "#FFE101"} :{ color: "#8C532C" }}>{currentPage}</span><span style={{ color: "#707070" }}>&nbsp;/&nbsp;</span>
+          <span
+            style={isHighContrast ? { color: "#FFE101" } : { color: "#8C532C" }}
+          >
+            {currentPage}
+          </span>
+          <span style={{ color: "#707070" }}>&nbsp;/&nbsp;</span>
           <span style={{ color: "#707070" }}>{totalPages}</span>
         </span>
         <button onClick={handleNextPage} disabled={currentPage === totalPages}>

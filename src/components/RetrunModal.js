@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 const ReturnModal = ({}) => {
   const navigate = useNavigate();
   const {
+    isLowScreen,
+    setisLowScreen,
     isHighContrast,
     setisHighContrast,
     isCreditPayContent,

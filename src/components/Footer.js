@@ -6,6 +6,10 @@ import AccessibilityModal from "./AccessibilityModal";
 
 const Footer = () => {
   const {
+    divRefs,
+    handleKeyDown,
+    isLowScreen,
+    setisLowScreen,
     isHighContrast,
     setisHighContrast,
     tabs,
@@ -155,7 +159,7 @@ const Footer = () => {
       ) : (
         ""
       )}
-      
+
       <div className={isHighContrast ? "contrast-down-footer" : "down-footer"}>
         {path === "" ? (
           <img
@@ -183,7 +187,13 @@ const Footer = () => {
           </div>
         )}
 
-        <div className="flex" onClick={() => setisAccessibilityModal(true)}>
+        <div
+          className="flex"
+          onClick={() => setisAccessibilityModal(true)}
+          tabIndex={2}
+          ref={(el) => (divRefs.current[2] = el)}
+          onKeyDown={(e) => handleKeyDown(e, 2)}
+        >
           <img
             className="black-circle"
             src={
@@ -202,7 +212,8 @@ const Footer = () => {
 
 export default Footer;
 
-{/* {path === "third" && (
+{
+  /* {path === "third" && (
         <div className="third-up-footer">
           <div style={{ width: "512px" }}>
             <div className="flex-between">
@@ -278,4 +289,5 @@ export default Footer;
             </button>
           </div>
         </div>
-      )} */}
+      )} */
+}

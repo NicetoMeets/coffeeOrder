@@ -1,4 +1,10 @@
-import React, { createContext, useState } from "react";
+import React, {
+  useRef,
+  forwardRef,
+  createContext,
+  useState,
+  useEffect,
+} from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import FirstPage from "./pages/FirstPage";
 import Header from "./components/Header";
@@ -23,7 +29,7 @@ export const AppProvider = ({ children }) => {
     "더보기",
   ];
 
-  const menuItems = [
+  const totalMenuItems = [
     {
       id: 1,
       name: "아메리카노 (아이스)",
@@ -87,8 +93,33 @@ export const AppProvider = ({ children }) => {
       img: "/images/콜드브루.png",
     },
   ];
-  const [isHighContrast, setisHighContrast] = useState(false);
   const [selectedTab, setSelectedTab] = useState("전체메뉴");
+  const categorizeMenu = (totalMenuItems) => {
+    const categorizedMenu = {
+      전체메뉴: totalMenuItems,
+      커피: totalMenuItems.filter(
+        (item) =>
+          item.name.includes("아메리카노") ||
+          item.name.includes("콜드브루") ||
+          item.name.includes("마끼아또")
+      ),
+      라떼: totalMenuItems.filter((item) => item.name.includes("라떼")),
+    };
+
+    if(selectedTab == "전체메뉴"){return categorizedMenu.전체메뉴}
+    else if(selectedTab == "커피"){return categorizedMenu.커피}
+    else if(selectedTab == "라떼"){return categorizedMenu.라떼}
+    else return [{
+      name: "추가예정",
+      price: "0",
+      img: "/images/콜드브루.png",
+    }]
+  };
+
+  const menuItems = categorizeMenu(totalMenuItems);
+
+  const [isHighContrast, setisHighContrast] = useState(false);
+  const [isLowScreen, setisLowScreen] = useState(true);
   const [isCreditPayContent, setisCreditPayContent] = useState(0);
   const [quantities, setQuantities] = useState(
     menuItems.reduce((acc, item) => ({ ...acc, [item.id]: 0 }), {})
@@ -96,7 +127,7 @@ export const AppProvider = ({ children }) => {
   const [isReturnModal, setisReturnModal] = useState(false);
   const [isAccessibilityModal, setisAccessibilityModal] = useState(false);
 
-  //수량 증가
+  // 수량 증가
   const handleIncrease = (id) => {
     setQuantities((prev) => ({ ...prev, [id]: prev[id] + 1 }));
   };
@@ -126,9 +157,47 @@ export const AppProvider = ({ children }) => {
   const totalCount = calculateSum(quantities);
   const totalSum = calculateTotal(quantities, menuItems);
 
+  const divRefs = useRef([]); // div들을 참조할 배열
+
+  useEffect(() => {
+    // 컴포넌트가 렌더링될 때 divRefs.current 초기화
+    // divRefs.current = [];
+    divRefs.current.filter(Boolean);
+    console.log(divRefs.current);
+  }, [divRefs]);
+
+  const handleKeyDown = (e, index) => {
+    const focusableElements = [
+      ...divRefs.current,
+      //  ...footerRefs.current
+    ]; // 모든 포커스 가능한 요소 통합
+    const totalElements = focusableElements.length;
+    console.log(e.key);
+    if (e.key === "ArrowRight") {
+      const nextIndex = (index + 1) % totalElements;
+      focusableElements[nextIndex]?.focus();
+    } else if (e.key === "ArrowLeft") {
+      const prevIndex = (index - 1 + totalElements) % totalElements;
+      focusableElements[prevIndex]?.focus();
+    } else if (e.key === "ArrowDown") {
+      const nextIndex = (index + 1) % totalElements;
+      focusableElements[nextIndex]?.focus();
+    } else if (e.key === "ArrowUp") {
+      const prevIndex = (index - 1 + totalElements) % totalElements;
+      focusableElements[prevIndex]?.focus();
+    } else if (e.key === "Enter") {
+      // Enter 키로 클릭 트리거
+      focusableElements[index]?.click();
+    }
+  };
+
   return (
     <AppContext.Provider
       value={{
+        divRefs,
+        handleKeyDown,
+        isLowScreen,
+        setisLowScreen,
         isHighContrast,
         setisHighContrast,
         isCreditPayContent,

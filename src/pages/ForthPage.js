@@ -6,6 +6,8 @@ import { AppContext } from "../App";
 const ForthPage = () => {
   const {
     totalSum,
+    isLowScreen,
+    setisLowScreen,
     isHighContrast,
     setisHighContrast,
     isCreditPayContent,

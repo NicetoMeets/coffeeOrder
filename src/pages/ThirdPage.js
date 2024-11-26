@@ -9,6 +9,8 @@ const ThirdPage = () => {
     isHighContrast,
     setisHighContrast,
     tabs,
+    isLowScreen,
+    setisLowScreen,
     menuItems,
     selectedTab,
     setSelectedTab,
