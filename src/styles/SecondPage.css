@@ -47,6 +47,7 @@
 
 .menu-tabs-flex-div {
   display:flex;
+  font-weight: 500;
   /* gap: 12px; */
 }
 

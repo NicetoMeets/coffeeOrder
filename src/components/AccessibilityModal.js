@@ -3,8 +3,8 @@ import { AppContext } from "../App";
 
 const AccessibilityModal = ({}) => {
   const {
-    divRefs,
-    handleKeyDown,
+    modalRefs,
+    modalhandleKeyDown,
     isLowScreen,
     setisLowScreen,
     isHighContrast,
@@ -93,9 +93,9 @@ const AccessibilityModal = ({}) => {
                 onClick={() => {
                   setAccessibility({ isHighContrast: false });
                 }}
-                tabIndex={0}
-                ref={(el) => (divRefs.current[0] = el)}
-                onKeyDown={(e) => handleKeyDown(e, 0)}
+                tabIndex={1}
+                ref={(el) => (modalRefs.current[0] = el)}
+                onKeyDown={(e) => modalhandleKeyDown(e, 0)}
                 className={
                   isHighContrast
                     ? "contrast-accessibility-down-content-div-btn"
@@ -120,9 +120,9 @@ const AccessibilityModal = ({}) => {
               </div>
               <div className="flex" style={{ gap: "10px" }}>
                 <div
-                  tabIndex={1}
-                  ref={(el) => (divRefs.current[1] = el)}
-                  onKeyDown={(e) => handleKeyDown(e, 1)}
+                  tabIndex={2}
+                  ref={(el) => (modalRefs.current[1] = el)}
+                  onKeyDown={(e) => modalhandleKeyDown(e, 1)}
                   className={`${
                     isHighContrast
                       ? "contrast-accessibility-down-content-div-btn1"
@@ -140,9 +140,9 @@ const AccessibilityModal = ({}) => {
                   끔
                 </div>
                 <div
-                  tabIndex={2}
-                  ref={(el) => (divRefs.current[2] = el)}
-                  onKeyDown={(e) => handleKeyDown(e, 2)}
+                  tabIndex={3}
+                  ref={(el) => (modalRefs.current[2] = el)}
+                  onKeyDown={(e) => modalhandleKeyDown(e, 2)}
                   className={`${
                     isHighContrast
                       ? "contrast-accessibility-down-content-div-btn1"
@@ -283,9 +283,9 @@ const AccessibilityModal = ({}) => {
             </div>
             <div className="accessibility-modal-buttons">
               <button
-                tabIndex={3}
-                ref={(el) => (divRefs.current[3] = el)}
-                onKeyDown={(e) => handleKeyDown(e, 3)}
+                tabIndex={4}
+                ref={(el) => (modalRefs.current[3] = el)}
+                onKeyDown={(e) => modalhandleKeyDown(e, 3)}
                 className={
                   isHighContrast
                     ? "contrast-accessibility-btn-cancel"
@@ -299,9 +299,9 @@ const AccessibilityModal = ({}) => {
                 적용안함
               </button>
               <button
-                tabIndex={4}
-                ref={(el) => (divRefs.current[4] = el)}
-                onKeyDown={(e) => handleKeyDown(e, 4)}
+                tabIndex={5}
+                ref={(el) => (modalRefs.current[4] = el)}
+                onKeyDown={(e) => modalhandleKeyDown(e, 4)}
                 className={
                   isHighContrast
                     ? "contrast-accessibility-btn-confirm"

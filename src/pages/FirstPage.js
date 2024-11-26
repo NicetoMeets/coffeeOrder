@@ -4,7 +4,7 @@ import { TakeInIcon, TakeOutIcon } from "../assets/icons";
 import { Link } from "react-router-dom";
 
 const FirstPage = () => {
-  const { divRefs, handleKeyDown, isHighContrast } = useContext(AppContext);
+  const { divRefs, divhandleKeyDown, isHighContrast } = useContext(AppContext);
 
   return (
     <div className="max-width">
@@ -21,7 +21,7 @@ const FirstPage = () => {
           className="home-btn"
           tabIndex={0}
           ref={(el) => (divRefs.current[0] = el)}
-          onKeyDown={(e) => handleKeyDown(e, 0)}
+          onKeyDown={(e) => divhandleKeyDown(e, 0)}
         >
           <TakeInIcon></TakeInIcon>
           <p>포장하기</p>
@@ -31,7 +31,7 @@ const FirstPage = () => {
           className="home-btn"
           tabIndex={1}
           ref={(el) => (divRefs.current[1] = el)}
-          onKeyDown={(e) => handleKeyDown(e, 1)}
+          onKeyDown={(e) => divhandleKeyDown(e, 1)}
         >
           <TakeOutIcon></TakeOutIcon>
           <p>먹고가기</p>

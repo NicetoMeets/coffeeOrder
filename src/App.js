@@ -157,20 +157,20 @@ export const AppProvider = ({ children }) => {
   const totalCount = calculateSum(quantities);
   const totalSum = calculateTotal(quantities, menuItems);
 
-  const divRefs = useRef([]); // div들을 참조할 배열
+  const divRefs = useRef([]);
+  const modalRefs = useRef([]);
 
   useEffect(() => {
-    // 컴포넌트가 렌더링될 때 divRefs.current 초기화
-    // divRefs.current = [];
-    divRefs.current.filter(Boolean);
-    console.log(divRefs.current);
-  }, [divRefs]);
+    if (document.activeElement) {
+      document.activeElement.blur();
+    }
+  }, [isAccessibilityModal]);
 
-  const handleKeyDown = (e, index) => {
+  const divhandleKeyDown = (e, index) => {
     const focusableElements = [
       ...divRefs.current,
       //  ...footerRefs.current
-    ]; // 모든 포커스 가능한 요소 통합
+    ]; // 모든 포커스 가능한 요소 통합  
     const totalElements = focusableElements.length;
     console.log(e.key);
     if (e.key === "ArrowRight") {
@@ -191,11 +191,39 @@ export const AppProvider = ({ children }) => {
     }
   };
 
+  const modalhandleKeyDown = (e, index) => {
+    const focusableElements = [
+      ...modalRefs.current,
+      //  ...footerRefs.current
+    ]; // 모든 포커스 가능한 요소 통합  
+    const totalElements = focusableElements.length;
+    console.log(e.key);
+    if (e.key === "ArrowRight") {
+      const nextIndex = (index + 1) % totalElements;
+      focusableElements[nextIndex]?.focus();
+    } else if (e.key === "ArrowLeft") {
+      const prevIndex = (index - 1 + totalElements) % totalElements;
+      focusableElements[prevIndex]?.focus();
+    } else if (e.key === "ArrowDown") {
+      const nextIndex = (index + 1) % totalElements;
+      focusableElements[nextIndex]?.focus();
+    } else if (e.key === "ArrowUp") {
+      const prevIndex = (index - 1 + totalElements) % totalElements;
+      focusableElements[prevIndex]?.focus();
+    } else if (e.key === "Enter") {
+      // Enter 키로 클릭 트리거
+      focusableElements[index]?.click();
+    }
+  };
+
+
   return (
     <AppContext.Provider
       value={{
         divRefs,
-        handleKeyDown,
+        divhandleKeyDown,
+        modalRefs,
+        modalhandleKeyDown,
         isLowScreen,
         setisLowScreen,
         isHighContrast,

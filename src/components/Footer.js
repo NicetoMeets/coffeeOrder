@@ -7,7 +7,7 @@ import AccessibilityModal from "./AccessibilityModal";
 const Footer = () => {
   const {
     divRefs,
-    handleKeyDown,
+    divhandleKeyDown,
     isLowScreen,
     setisLowScreen,
     isHighContrast,
@@ -34,8 +34,8 @@ const Footer = () => {
 
   return (
     <>
-      <ReturnModal></ReturnModal>
-      <AccessibilityModal></AccessibilityModal>
+      {isReturnModal ? <ReturnModal></ReturnModal> : ""}
+      {isAccessibilityModal ? <AccessibilityModal></AccessibilityModal> : ""}
       {path === "second" || path === "third" ? (
         <div
           className={
@@ -192,7 +192,7 @@ const Footer = () => {
           onClick={() => setisAccessibilityModal(true)}
           tabIndex={2}
           ref={(el) => (divRefs.current[2] = el)}
-          onKeyDown={(e) => handleKeyDown(e, 2)}
+          onKeyDown={(e) => divhandleKeyDown(e, 2)}
         >
           <img
             className="black-circle"
